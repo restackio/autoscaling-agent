@@ -14,11 +14,11 @@ export type EndEvent = {
 export const memoryIntensiveOperationEvent = defineEvent<boolean>("memoryIntensiveOperation");
 export const endEvent = defineEvent("end");
 
-type AgentChatOutput = {
+type AgentMemoryIntensiveOutput = {
   memoryIntensiveOperationDone: boolean;
 };
 
-export async function agentChat(): Promise<AgentChatOutput> {
+export async function agentMemoryIntensive(): Promise<AgentMemoryIntensiveOutput> {
   let endReceived = false;
   let memoryIntensiveOperationDone = false;
 
@@ -32,7 +32,6 @@ export async function agentChat(): Promise<AgentChatOutput> {
     endReceived = true;
   });
 
-  // We use the ` condition` function to wait for the event goodbyeReceived to return `True`.
   await condition(() => endReceived);
 
   log.info("end condition met");
