@@ -23,10 +23,11 @@ export async function agentMemoryIntensive(): Promise<AgentMemoryIntensiveOutput
   let memoryIntensiveOperationDone = false;
 
   onEvent(memoryIntensiveOperationEvent, async () => {
-    await step<typeof functions>({}).memoryIntenstiveOperation();
-    await step<typeof functions>({}).memoryIntenstiveOperation();
-    await step<typeof functions>({}).memoryIntenstiveOperation();
-    await step<typeof functions>({}).memoryIntenstiveOperation();
+    const operations = Array.from({ length: 100 }, () => 
+      step<typeof functions>({}).memoryIntenstiveOperation()
+    );
+    await Promise.allSettled(operations);
+    
     memoryIntensiveOperationDone = true;
     return true;
   });
