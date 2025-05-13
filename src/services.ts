@@ -3,11 +3,16 @@ import { client } from "./client";
 
 async function services() {
   const agentsPath = require.resolve("./agents");
+  const workflowsPath = require.resolve("./workflows");
+
   try {
     await Promise.all([
       client.startService({
-        agentsPath: agentsPath,
+        agentsPath,
         functions: { memoryIntenstiveOperation },
+      }),
+      client.startService({
+        workflowsPath,
       }),
     ]);
 

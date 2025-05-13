@@ -8,7 +8,7 @@ async function scheduleAgent(input: InputSchedule) {
   try {
     const agentId = `${Date.now()}-AgentChat`;
     const runId = await client.scheduleAgent({
-      agentName: "agentChat",
+      agentName: "agentMemoryIntensive",
       agentId,
       input,
     });
