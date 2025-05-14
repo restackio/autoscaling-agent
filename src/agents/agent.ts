@@ -23,7 +23,7 @@ export async function agentScaling(): Promise<AgentOperation> {
   let intensiveOperationDone = false;
 
   onEvent(agentEvent, async () => {
-    const operations = Array.from({ length: 10 }, () => 
+    const operations = Array.from({ length: 100 }, () => 
       step<typeof functions>({}).intensiveOperation()
     );
     await Promise.allSettled(operations);
