@@ -11,24 +11,24 @@ export type EndEvent = {
   end: boolean;
 };
 
-export const memoryIntensiveOperationEvent = defineEvent<boolean>("memoryIntensiveOperation");
+export const agentEvent = defineEvent<boolean>("agentEvent");
 export const endEvent = defineEvent("end");
 
-type AgentMemoryIntensiveOutput = {
-  memoryIntensiveOperationDone: boolean;
+type AgentOperation = {
+  intensiveOperationDone: boolean;
 };
 
-export async function agentMemoryIntensive(): Promise<AgentMemoryIntensiveOutput> {
+export async function agentScaling(): Promise<AgentOperation> {
   let endReceived = false;
-  let memoryIntensiveOperationDone = false;
+  let intensiveOperationDone = false;
 
-  onEvent(memoryIntensiveOperationEvent, async () => {
+  onEvent(agentEvent, async () => {
     const operations = Array.from({ length: 10 }, () => 
-      step<typeof functions>({}).memoryIntenstiveOperation()
+      step<typeof functions>({}).intensiveOperation()
     );
     await Promise.all(operations);
     
-    memoryIntensiveOperationDone = true;
+    intensiveOperationDone = true;
     return true;
   });
 
@@ -39,5 +39,5 @@ export async function agentMemoryIntensive(): Promise<AgentMemoryIntensiveOutput
   await condition(() => endReceived);
 
   log.info("end condition met");
-  return { memoryIntensiveOperationDone };
+  return { intensiveOperationDone };
 }

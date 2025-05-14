@@ -1,4 +1,4 @@
-import { memoryIntenstiveOperation } from "./functions";
+import { intensiveOperation } from "./functions";
 import { client } from "./client";
 
 async function services() {
@@ -8,8 +8,8 @@ async function services() {
   try {
     await Promise.all([
       client.startService({
-        agentsPath,
-        functions: { memoryIntenstiveOperation },
+        agentsPath: agentsPath,
+        functions: { intensiveOperation },
       }),
       client.startService({
         workflowsPath,

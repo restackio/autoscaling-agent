@@ -1,17 +1,17 @@
 import { step } from "@restackio/ai/workflow";
-import { childExecute } from "@restackio/ai/workflow";
-import { agentMemoryIntensive } from "../agents/agent";
+
+import { sendAgentEvent } from "../functions/sendAgentEvent";
 import * as functions from "../functions";
 
 export async function loadTestWorkflow() {
-   const operations = Array.from({ length: 10 }, async () =>  {
-    const agentId = `${Date.now()}-AgentMemoryIntensive`;
+  const agentId = `${Date.now()}-AgentMemoryIntensive`;
+  const runId = `${Date.now()}-run-id`;
 
-    const data = await childExecute({
-      child: agentMemoryIntensive,
-      childId: `${Date.now()}-agentMemoryIntensive`,
-      input: [],
-    });
+  await step<typeof functions>({}).sendAgentEvent({
+    eventName: 'end',
+    eventInput: {},
+    agentId,
+    runId,
   });
-  await Promise.all(operations);
+
 }
