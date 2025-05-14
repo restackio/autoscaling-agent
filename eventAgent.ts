@@ -9,8 +9,8 @@ async function eventAgent(input: EventInput) {
   try {
     await client.sendAgentEvent({
       event: {
-        name: "message",
-        input: { content: "Tell me a joke" },
+        name: "agentEvent",
+        input: { },
       },
       agent: {
         agentId: input.agentId,
