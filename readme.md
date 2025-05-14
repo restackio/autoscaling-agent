@@ -95,6 +95,6 @@ To deploy the application on Restack, you can create an account at [https://cons
 
 ## Scaling on Restack cloud
 
-This example is to showcase how Restack Cloud will handle autoscaling to handle operations for your agent. Once the app is deployed you can spawn several agents using the agent POST request on the Restack developer ui and then trigger the `intensiveOperation` event on each of the agents.
+This example is to showcase how Restack Cloud will handle autoscaling to handle operations for your agent. Once the app is deployed you can spawn several agents using the agent POST request on the Restack developer ui and then trigger the `agentEvent` event on each of the agents.
 
 On Restack cloud console under the logs section, you will notice how more pods are spawned to handle the load.
