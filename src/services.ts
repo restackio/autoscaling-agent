@@ -8,6 +8,10 @@ async function services() {
       client.startService({
         agentsPath: agentsPath,
         functions: { intensiveOperation },
+        resources: {
+          targetCpuUsage: 0.8,
+          targetMemoryUsage: 0.8,
+        },
       }),
     ]);
 
