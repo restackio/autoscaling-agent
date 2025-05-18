@@ -11,7 +11,7 @@ A sample repository with an agent doing memory intensive operations
 To start Restack, use the following Docker command:
 
 ```bash
-docker run -d --pull always --name restack -p 5233:5233 -p 6233:6233 -p 7233:7233 -p 9233:9233 ghcr.io/restackio/restack:main
+docker run -d --pull always --name restack -p 5233:5233 -p 6233:6233 -p 7233:7233 -p 9233:9233 -p 10233:10233 ghcr.io/restackio/restack:main
 ```
 
 ## Install dependencies and start services
@@ -65,7 +65,6 @@ And see the events in the run:
 You can send events to the agent by using the following endpoint:
 
 `PUT http://localhost:6233/api/agents/AgentChat/:agentId/:runId`
-
 
 You can send following payload
 
