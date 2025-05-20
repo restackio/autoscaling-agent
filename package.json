@@ -7,11 +7,11 @@
     "build": "tsc --build",
     "start": "node dist/services.js",
     "clean": "rm -rf node_modules",
-    "schedule-agent": "tsx scheduleAgent.ts",
+    "schedule": "tsx scheduleAgent.ts",
     "event-agent": "tsx eventAgent.ts"
   },
   "dependencies": {
-    "@restackio/ai": "^0.0.123",
+    "@restackio/ai": "^0.0.124",
     "@temporalio/workflow": "1.11.8",
     "dotenv": "^16.4.7"
   },

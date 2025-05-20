@@ -7,15 +7,16 @@ export type InputSchedule = {
 async function scheduleAgent(input: InputSchedule) {
   try {
     const agentId = `${Date.now()}-AgentScaling`;
-    const runId = await client.scheduleAgent({
+
+    const scheduledAgent = await client.scheduleAgent({
       agentName: "agentScaling",
       agentId,
       input,
+      event: {
+        name: "agentEvent",
+      },
     });
-
-    const result = await client.getAgentResult({ agentId, runId });
-
-    console.log("Agent result:", result);
+    console.log("Agent scheduled:", scheduledAgent);
 
     process.exit(0); // Exit the process successfully
   } catch (error) {

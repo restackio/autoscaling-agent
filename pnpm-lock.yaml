@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@restackio/ai':
-        specifier: ^0.0.123
-        version: 0.0.123
+        specifier: ^0.0.124
+        version: 0.0.124
       '@temporalio/workflow':
         specifier: 1.11.8
         version: 1.11.8
@@ -264,8 +264,8 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@restackio/ai@0.0.123':
-    resolution: {integrity: sha512-cIlNRZuPsMB07mO+4bYGKsV7seHGM7iFZCrl3qxlFt1uEpW2uP++CqCtA+tZJbJhxnwo7fdEiqAkro+iVBnm9A==}
+  '@restackio/ai@0.0.124':
+    resolution: {integrity: sha512-CmBDnHltTCFYC9nLwW2ecaP84e5itDS+1KHwRzW+4LgQM2BAIS9jDIwLczcpzIyWXE9BIugasToT942wpvIrbA==}
     engines: {node: '>=20'}
 
   '@swc/core-darwin-arm64@1.11.24':
@@ -949,8 +949,8 @@ packages:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
 
-  watchpack@2.4.2:
-    resolution: {integrity: sha512-TnbFSbcOCcDgjZ4piURLCbJ3nJhznVh9kw6F6iokjiFPl8ONxe9A6nMDVXDiNbrSfLILs6vB07F7wLBrwPYzJw==}
+  watchpack@2.4.3:
+    resolution: {integrity: sha512-adBYQLivcg1jbdKEJeqScJJFvgm4qY9+3tXw+jdG6lkVeqRJEtiQmSWjmth8GKmDZuX7sYM4YFxQsf0AzMfGGw==}
     engines: {node: '>=10.13.0'}
 
   webpack-sources@3.2.3:
@@ -1005,8 +1005,8 @@ packages:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
 
-  zod@3.24.4:
-    resolution: {integrity: sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg==}
+  zod@3.25.7:
+    resolution: {integrity: sha512-YGdT1cVRmKkOg6Sq7vY7IkxdphySKnXhaUmFI4r4FcuFVNgpCb9tZfNwXbT6BPjD5oz0nubFsoo9pIqKrDcCvg==}
 
 snapshots:
 
@@ -1157,7 +1157,7 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@restackio/ai@0.0.123':
+  '@restackio/ai@0.0.124':
     dependencies:
       '@temporalio/activity': 1.11.8
       '@temporalio/client': 1.11.8
@@ -1165,7 +1165,7 @@ snapshots:
       '@temporalio/worker': 1.11.8
       '@temporalio/workflow': 1.11.8
       ws: 8.18.2
-      zod: 3.24.4
+      zod: 3.25.7
     transitivePeerDependencies:
       - '@swc/helpers'
       - bufferutil
@@ -1858,7 +1858,7 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  watchpack@2.4.2:
+  watchpack@2.4.3:
     dependencies:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
@@ -1889,7 +1889,7 @@ snapshots:
       schema-utils: 4.3.2
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.14(@swc/core@1.11.24)(webpack@5.99.8(@swc/core@1.11.24))
-      watchpack: 2.4.2
+      watchpack: 2.4.3
       webpack-sources: 3.2.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -1926,4 +1926,4 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  zod@3.24.4: {}
+  zod@3.25.7: {}
