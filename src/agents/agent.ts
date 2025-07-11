@@ -4,6 +4,7 @@ import {
   condition,
   log,
   step,
+  agentContinueAsNew,
 } from "@restackio/ai/agent";
 import * as functions from "../functions";
 
@@ -26,7 +27,6 @@ export async function agentScaling(): Promise<AgentOperation> {
     const operations = Array.from({ length: 100 }, () =>
       step<typeof functions>({
         retry: { maximumAttempts: 10 },
-        // scheduleToCloseTimeout: "5 seconds",
       }).intensiveOperation()
     );
     await Promise.allSettled(operations);
@@ -40,6 +40,10 @@ export async function agentScaling(): Promise<AgentOperation> {
   });
 
   await condition(() => endReceived);
+
+  if (!endReceived) {
+    await agentContinueAsNew();
+  }
 
   log.info("end condition met");
   return { intensiveOperationDone };
