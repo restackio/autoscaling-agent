@@ -11,7 +11,7 @@
     "event-agent": "tsx eventAgent.ts"
   },
   "dependencies": {
-    "@restackio/ai": "^0.0.129",
+    "@restackio/ai": "^0.0.130",
     "@temporalio/workflow": "1.11.8",
     "dotenv": "^16.4.7"
   },
