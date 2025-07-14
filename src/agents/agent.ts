@@ -5,6 +5,7 @@ import {
   log,
   step,
   agentContinueAsNew,
+  shouldContinueAsNew,
 } from "@restackio/ai/agent";
 import * as functions from "../functions";
 
@@ -15,11 +16,8 @@ export type EndEvent = {
 export const agentEvent = defineEvent<boolean>("agentEvent");
 export const endEvent = defineEvent("end");
 
-type AgentOperation = {
-  intensiveOperationDone: boolean;
-};
 
-export async function agentScaling(): Promise<AgentOperation> {
+export async function agentScaling() {
   let endReceived = false;
   let intensiveOperationDone = false;
 
@@ -39,12 +37,12 @@ export async function agentScaling(): Promise<AgentOperation> {
     endReceived = true;
   });
 
-  await condition(() => endReceived);
+  await condition(() => endReceived || shouldContinueAsNew());
 
-  if (!endReceived) {
-    await agentContinueAsNew();
+  if (endReceived) {
+    log.info("end condition met");
+    return { intensiveOperationDone };
   }
 
-  log.info("end condition met");
-  return { intensiveOperationDone };
+  await agentContinueAsNew();
 }
